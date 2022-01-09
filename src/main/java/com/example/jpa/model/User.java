@@ -38,9 +38,10 @@ public class User implements Serializable {
     //@Column(name = "role", table = "roles")
     //String role;
     @ManyToOne(cascade = CascadeType.ALL/*, fetch = FetchType.LAZY*/)
-    @JoinColumn(name = "id_role", referencedColumnName = "id",updatable=false, insertable = false)
+    @JoinColumn(name = "id_role", referencedColumnName = "id", updatable=false, insertable = false)
     private Role role;
     
+    //create another invisible column to insert "id_role" field
     @JsonIgnore
     @Column(name = "id_role", nullable = true)
     private Integer rol;
